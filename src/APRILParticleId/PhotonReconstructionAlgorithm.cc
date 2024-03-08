@@ -49,8 +49,8 @@ namespace april_content
 	{
         m_reader = new TMVA::Reader( "!Color:!Silent" ); 
 
-	    m_reader->AddVariable( "minHitLayer",         &m_minHitLayer);
-	    m_reader->AddVariable( "clusterVol",          &m_clusterVol);
+	      m_reader->AddVariable( "minHitLayer",         &m_minHitLayer);
+	      m_reader->AddVariable( "clusterVol",          &m_clusterVol);
         m_reader->AddVariable( "hitOutsideRatio",     &m_hitOutsideRatio);
         m_reader->AddVariable( "axisLengthRatio",     &m_axisLengthRatio);
 

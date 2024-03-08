@@ -38,14 +38,14 @@
 
 namespace april_content
 {
-    const pandora::CaloHitList*  APRILClusteringAlgorithm::m_pCaloHitList = nullptr; 
-    pandora::CaloHitList   APRILClusteringAlgorithm::m_ecalCaloHitList; 
+  const pandora::CaloHitList*  APRILClusteringAlgorithm::m_pCaloHitList = nullptr; 
+  pandora::CaloHitList   APRILClusteringAlgorithm::m_ecalCaloHitList; 
 	pandora::CaloHitList   APRILClusteringAlgorithm::m_hcalCaloHitList; 
 	pandora::CaloHitList   APRILClusteringAlgorithm::m_muonCaloHitList;
 
   pandora::StatusCode APRILClusteringAlgorithm::Run()
   {
-	m_pCaloHitList = nullptr;
+	  m_pCaloHitList = nullptr;
     PANDORA_RETURN_RESULT_IF(pandora::STATUS_CODE_SUCCESS, !=, PandoraContentApi::GetCurrentList(*this, m_pCaloHitList));
 
     if(m_pCaloHitList->empty())
@@ -158,7 +158,7 @@ namespace april_content
     {
       const april_content::CaloHit *const pCaloHit = dynamic_cast<const april_content::CaloHit *const>(*iter);
 
-      // wrong framework baby !
+      // wrong framework
       if(NULL == pCaloHit)
         continue;
 

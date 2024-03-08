@@ -284,13 +284,6 @@ public:
   static pandora::StatusCode RegisterAPRILShowerProfilePlugin(const pandora::Pandora &pandora);
 
   /**
-   *  @brief  Register the energy corrections with pandora
-   *
-   *  @param  pandora the pandora instance with which to register content
-   */
-  static pandora::StatusCode RegisterEnergyCorrections(const pandora::Pandora &pandora);
-
-  /**
    *  @brief  Register april particle id functions
    *
    *  @param  pandora the pandora instance with which to register content

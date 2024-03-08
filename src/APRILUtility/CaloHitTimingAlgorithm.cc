@@ -130,7 +130,7 @@ namespace april_content
 
   pandora::StatusCode CaloHitTimingAlgorithm::ReadSettings(const pandora::TiXmlHandle xmlHandle)
   {
-	m_timing = false;
+	m_timing = true;
     PANDORA_RETURN_RESULT_IF_AND_IF(pandora::STATUS_CODE_SUCCESS, pandora::STATUS_CODE_NOT_FOUND, !=, pandora::XmlHelper::ReadValue(xmlHandle,
         "ApplyTiming", m_timing));
 

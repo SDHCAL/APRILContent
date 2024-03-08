@@ -302,25 +302,24 @@ namespace april_content
 
   for(auto caloHit : clusterCaloHitList)
 	{
-    const pandora::CaloHit *const pCaloHit(caloHit); //works  
-		//const april_content::CaloHit *const pCaloHit(dynamic_cast<const april_content::CaloHit *const>(caloHit)); //returns nullptr
+		const april_content::CaloHit *const pCaloHit(dynamic_cast<const april_content::CaloHit *const>(caloHit));
 		cluCentroid += pCaloHit->GetPositionVector();
-  //Not truly coherent for now
-		/* if(APRILContentApi::HasAnyConnection(pCaloHit))
+  
+		 if(APRILContentApi::HasAnyConnection(pCaloHit))
 		{
 			cluCentroidWithConnector += pCaloHit->GetPositionVector();
 			++nHits;
-		} */
+		} 
 	}
 
-	// if(nHits>=2)
-	// {
-	// 	centroid = cluCentroidWithConnector * (1./nHits);
-	// }
-	// else
-	// {
+	if(nHits>=2)
+	{
+	  centroid = cluCentroidWithConnector * (1./nHits);
+	}
+	else
+	{
 		centroid = cluCentroid * (1./clusterCaloHitList.size());
-	//}
+	}
 
     return pandora::STATUS_CODE_SUCCESS;
   }

@@ -252,6 +252,7 @@ namespace april_content
 	
     return pandora::STATUS_CODE_SUCCESS;
   }
+  
 
   void ClusterFromTrackMergingAlgorithm::SearchProperClusters(const pandora::Track* pTrack, APRILCluster* startingCluster, 
 		  std::vector<april_content::APRILCluster*>& properClusters)

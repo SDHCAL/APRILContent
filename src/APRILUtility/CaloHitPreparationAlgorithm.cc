@@ -57,7 +57,7 @@ namespace april_content
     {
       const unsigned int pseudoLayer(iter->first);
 
-	  //std::cout << "pseudoLayer: " << pseudoLayer << std::endl;
+	    //std::cout << "pseudoLayer: " << pseudoLayer << std::endl;
 
       for(pandora::CaloHitList::const_iterator hitIter = iter->second->begin(), hitEndIter = iter->second->end() ;
           hitEndIter != hitIter ; ++hitIter)
@@ -65,12 +65,12 @@ namespace april_content
         const april_content::CaloHit *const pCaloHit(dynamic_cast<const april_content::CaloHit *>(*hitIter));
 
         if(NULL == pCaloHit)
-		{
-			//std::cout << "pointer is null..."  << std::endl;
+		    {
+			  //std::cout << "pointer is null..."  << std::endl;
           return pandora::STATUS_CODE_FAILURE;
-		}
+		    }
 
-		++nHits;
+		    ++nHits;
         const float energy(pCaloHit->GetHitType() == pandora::ECAL ? pCaloHit->GetElectromagneticEnergy() : pCaloHit->GetHadronicEnergy());
 
         const pandora::CartesianVector position(pCaloHit->GetPositionVector());
@@ -95,7 +95,7 @@ namespace april_content
 
           const pandora::CartesianVector position2(pCaloHit2->GetPositionVector());
 
-          // WTF ??
+          // TO KEEP ??
           // N.B. how about the case of hits in different time but the same position ?
           if(position == position2)
             continue;
@@ -158,7 +158,7 @@ namespace april_content
 
             const pandora::CartesianVector position2(pCaloHit2->GetPositionVector());
 
-            // WTF ??
+            // TO KEEP ?? Isn't better to test if pCaloHit==pCaloHit2 rather than testing the position ?
             if(position == position2)
               continue;
 

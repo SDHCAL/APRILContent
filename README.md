@@ -17,10 +17,10 @@ boost comes with ilcsoft. to install both mlpack and armadillo, do (example with
 5) PKG_CONFIG_PATH=/path/to/MLPACK/.../lib64/pkgconfig cmake -C ${ILCSOFT}/ILCSoft.cmake -DPANDORA_MONITORING=ON .. -DBoost_INCLUDE_DIR=/path/to/boost/include -DARMADILLO_INCLUDE_DIR=/path/to/mlpack/build/deps/armadillo-10.3.0/include
 6) make install
 
-**To compile with k4hep :**
+**To compile with key4hep :**
 
 1) source key4hep
 2) Clone the APRILContent repository
 3) cd APRILContent; mkdir build; cd build
-4) cmake -DPANDORA_MONITORING=ON .. -Dpandora_cmake_path=${PANDORAPFA}/cmakemodules -DCMAKE_CXX_STANDARD=`root-config --cxxstandard`
+4) cmake -DPANDORA_MONITORING=ON .. -Dpandora_cmake_path=${PANDORAPFA}/cmakemodules -DCMAKE_CXX_STANDARD=\`root-config --cxxstandard\`
 5) make install

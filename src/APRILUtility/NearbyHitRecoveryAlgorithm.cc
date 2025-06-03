@@ -612,7 +612,7 @@ pandora::StatusCode NearbyHitRecoveryAlgorithm::MakeClusterHitsAssociation(Clust
 				 //  << ", pos: " << hitPos.GetX() << ", " << hitPos.GetY() << ", " << hitPos.GetZ() 
 				   //<< ", cluster: " << pAPRILCaloHit->GetMother() << std::endl;
 
-			   //if(pAPRILCaloHit != nullptr && clusterToAdd == nullptr)
+			   if(pAPRILCaloHit != nullptr && clusterToAdd == nullptr)
 			   {
 				   clusterToAdd = pAPRILCaloHit->GetMother();
 				   hitsDistance = (hitPos - testPosition).GetMagnitude();

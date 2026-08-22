@@ -93,9 +93,13 @@ endif()
 
 # -------------- packages -------------
 FIND_PACKAGE( PandoraSDK 02.00.00 REQUIRED )
-INCLUDE_DIRECTORIES( ${PandoraSDK_INCLUDE_DIRS} )
-LINK_LIBRARIES( ${PandoraSDK_LIBRARIES} )
-ADD_DEFINITIONS ( ${PandoraSDK_DEFINITIONS} )
+IF(TARGET PandoraPFA::PandoraSDK)
+  LINK_LIBRARIES(PandoraPFA::PandoraSDK)
+ELSE()
+  INCLUDE_DIRECTORIES(${PandoraSDK_INCLUDE_DIRS})
+  LINK_LIBRARIES(${PandoraSDK_LIBRARIES})
+  ADD_DEFINITIONS(${PandoraSDK_DEFINITIONS})
+ENDIF()
 
 
 FIND_PACKAGE( ROOT 5.26.00 REQUIRED COMPONENTS Core Tree Physics Matrix Eve Geom RGL EG TMVA ) # minimum required ROOT version
@@ -105,9 +109,13 @@ ADD_DEFINITIONS ( ${ROOT_DEFINITIONS} )
 
 IF( PANDORA_MONITORING )
   FIND_PACKAGE( PandoraMonitoring REQUIRED )
-  INCLUDE_DIRECTORIES( ${PandoraMonitoring_INCLUDE_DIRS} )
-  LINK_LIBRARIES( ${PandoraMonitoring_LIBRARIES} )
-  ADD_DEFINITIONS ( ${PandoraMonitoring_DEFINITIONS} )
+  IF(TARGET PandoraPFA::PandoraMonitoring)
+    LINK_LIBRARIES(PandoraPFA::PandoraMonitoring)
+  ELSE()
+    INCLUDE_DIRECTORIES(${PandoraMonitoring_INCLUDE_DIRS})
+    LINK_LIBRARIES(${PandoraMonitoring_LIBRARIES})
+    ADD_DEFINITIONS(${PandoraMonitoring_DEFINITIONS})
+  ENDIF()
   ADD_DEFINITIONS( "-DMONITORING" )
 ENDIF()
 
@@ -163,4 +171,3 @@ PANDORA_DISPLAY_STD_VARIABLES()
 
 # generate and install following configuration files
 PANDORA_GENERATE_PACKAGE_CONFIGURATION_FILES( ${PROJECT_NAME}Config.cmake ${PROJECT_NAME}ConfigVersion.cmake ${PROJECT_NAME}LibDeps.cmake )
-
